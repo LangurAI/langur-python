@@ -29,3 +29,9 @@ class Perceptron(Neuron):
 
     def __str__(self):
         return f"{self.weights}"
+
+class Radial(Neuron):
+    """
+    Radial neuron model.
+    """
+    pass
