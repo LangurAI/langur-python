@@ -1,12 +1,12 @@
 # langur-python documentation
 ### Table of contents
-1. Neurons
-   1. Activation
-   2. Weight initialization
+1. [Neurons](#neurons)
+   1. [Activation](#activation)
+   2. [Weight initialization](#weights)
 2. Networks
 ---
-### 1. Neurons
-#### 1.i. Activation functions
+# Neurons<a name="neurons"></a>
+### Activation functions<a name="activation"></a>
 All functions take in an array of values as input (it is omitted in the function definitions below).
 | Name        | Function           |
 | ------------- |:-------------:|
@@ -25,12 +25,12 @@ All functions take in an array of values as input (it is omitted in the function
 | Binary step | Step() |
 | Hyperbolic Tangent | Tanh() |
 
-#### 1.j. Weight initialization functions
+### Weight initialization functions<a name="weights"></a>
 All functions take in an integer of input_size (it is omitted in the function definitions below).
 | Name        | Function           | Description |
 | ------------- |:-------------:|:-------------:|
 | He | He() | Random standard normal distribution using the He method (multiplied by the sqaure root of (2/number of input layers))  |
 | Random | Random() | Random standard normal distribution |
-| Random with Multiplication by Constant| AlphaRandom(alpha) | Random standard normal distribution multiplied by a constant (alpha) |
+| Random with Multiplication by Constant| AlphaRandom(alpha=0.01) | Random standard normal distribution multiplied by a constant (alpha) |
 | Xavier | Xavier() | Random standard normal distribution using the Xavier method (multiplied by the sqaure root of (1/number of input layers))  |
-| Zeros | Zesros() | Initialization with zeros |
+| Zeros | Zeros() | Initialization with zeros |
