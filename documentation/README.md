@@ -8,22 +8,21 @@
 # Neurons<a name="neurons"></a>
 ### Activation functions<a name="activation"></a>
 All functions take in an array of values as input (it is omitted in the function definitions below).
-| Name        | Function           |
-| ------------- |:-------------:|
-| Self-defined Step Function| DefinedStep(threshold=0, act_alue=1, inact_alue=0) |
-|Exponential Linear Unit | ELU(alfa=1) |
-| Identity| Identity() |
-| Gaussian | Gaussian() |
-| Leaky Rectified Linear Unit | LeakyReLU() |
-| Parametric Rectified Linear Unit | PReLU(alfa=1) |
-| Rectified Linear Unit | ReLU() |
-| Scaled Exponential Linear Unit | SELU(alfa=1.67326, beta=1.0507) |
-| Sigmoid | Sigmoid() |
-| Sigmoid Linear Unit | SiLU() |
-| Softplus | Softplus() |
-| Softsign | Softsign() |
-| Binary step | Step() |
-| Hyperbolic Tangent | Tanh() |
+| Name        | Function           | Description |
+| ------------- |:-------------:|:-------------:|
+| Exponential Linear Unit | ELU(alfa=1) |  |
+| Identity| Identity() |  |
+| Gaussian | Gaussian() |  |
+| Leaky Rectified Linear Unit | LeakyReLU() |  |
+| Parametric Rectified Linear Unit | PReLU(alfa=1) | ReLU, but with input multiplied by constant alpha |
+| Rectified Linear Unit | ReLU() |  |
+| Scaled Exponential Linear Unit | SELU(alfa=1.67326, beta=1.0507) |  |
+| Step Function | Step(threshold=0, act_alue=1, inact_alue=0) | Step function, where you can define the threshold and values: on activation (act_value) and on lack of activation (inact_value) |
+| Sigmoid | Sigmoid() |  |
+| Sigmoid Linear Unit | SiLU() |  |
+| Softplus | Softplus() |  |
+| Softsign | Softsign() |  |
+| Hyperbolic Tangent | Tanh() |  |
 
 ### Weight initialization functions<a name="weights"></a>
 All functions take in an integer of input_size (it is omitted in the function definitions below).
