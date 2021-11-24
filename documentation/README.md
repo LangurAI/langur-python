@@ -20,6 +20,7 @@ All functions take in an array of values as input (it is omitted in the function
 | Sigmoid | sigmoid() |
 | Sigmoid Linear Unit | SiLU() |
 | Softplus | softplus() |
+| Softsign | softsign() |
 | Binary step | step() |
 | Hyperbolic Tangent | tanh() |
 

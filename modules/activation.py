@@ -82,6 +82,13 @@ def softplus(v):
     """
     return log(1 + exp(sum(v)))
 
+def softsign(v):
+    """
+    Softplus activation function.
+    """
+    x = sum(v)
+    return x/(1+abs(x))
+
 def gaussian(v):
     """
     Gaussian activation function.
