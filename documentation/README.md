@@ -24,3 +24,13 @@ All functions take in an array of values as input (it is omitted in the function
 | Softsign | Softsign() |
 | Binary step | Step() |
 | Hyperbolic Tangent | Tanh() |
+
+#### 1.j. Weight initialization functions
+All functions take in an integer of input_size (it is omitted in the function definitions below).
+| Name        | Function           | Description |
+| ------------- |:-------------:|:-------------:|
+| He | He() | Random standard normal distribution using the He method (multiplied by the sqaure root of (2/number of input layers))  |
+| Random | Random() | Random standard normal distribution |
+| Random with Multiplication by Constant| AlphaRandom(alpha) | Random standard normal distribution multiplied by a constant (alpha) |
+| Xavier | Xavier() | Random standard normal distribution using the Xavier method (multiplied by the sqaure root of (1/number of input layers))  |
+| Zeros | Zesros() | Initialization with zeros |
