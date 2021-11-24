@@ -94,5 +94,3 @@ def gaussian(v):
     Gaussian activation function.
     """
     return exp(-1*sum(v)**2)
-
-

@@ -23,4 +23,3 @@ All functions take in an array of values as input (it is omitted in the function
 | Softsign | softsign() |
 | Binary step | step() |
 | Hyperbolic Tangent | tanh() |
-
