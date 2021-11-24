@@ -9,5 +9,17 @@
 All functions take in an array of values as input (it is omitted in the function definitions below).
 | Name        | Function           |
 | ------------- |:-------------:|
-| ReLU      | ReLU() |
-| Softmax | softmax()      |
+| Self-defined Step Function| defined_step(threshold=0, act_alue=1, inact_alue=0) |
+|Exponential Linear Unit | ELU(alfa=1) |
+| Identity| identity() |
+| Gaussian | gaussian() |
+| Leaky Rectified Linear Unit | LeakyReLU() |
+| Parametric Rectified Linear Unit | PReLU(alfa=1) |
+| Rectified Linear Unit | ReLU() |
+| Scaled Exponential Linear Unit | SELU(alfa=1.67326, beta=1.0507) |
+| Sigmoid | sigmoid() |
+| Sigmoid Linear Unit | SiLU() |
+| Softplus | softplus() |
+| Binary step | step() |
+| Hyperbolic Tangent | tanh() |
+
