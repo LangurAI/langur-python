@@ -1,14 +1,7 @@
 from math import exp, log
 
 
-def Step(v):
-    """
-    Default step function.
-    """
-    return 1 if sum(v) >= 0 else 0
-
-
-def DefinedStep(v, threshold=0, act_value=1, inact_value=0):
+def Step(v, threshold=0, act_value=1, inact_value=0):
     """
     Step function where the threshold,
     activated and inactivated value can be defined.
