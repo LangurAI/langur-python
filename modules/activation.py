@@ -1,33 +1,33 @@
 from math import exp, log
 
 
-def step(v):
+def Step(v):
     """
     Default step function.
     """
     return 1 if sum(v) >= 0 else 0
 
 
-def defined_step(v, threshold=0, act_value=1, inact_value=0):
+def DefinedStep(v, threshold=0, act_value=1, inact_value=0):
     """
     Step function where the threshold,
     activated and inactivated value can be defined.
     """
     return act_value if sum(v) >= threshold else inact_value
 
-def identity(v):
+def Identity(v):
     """
     Identity activation function.
     """
     return sum(v)
 
-def sigmoid(v):
+def Sigmoid(v):
     """
     Sigmoid function.
     """
     return 1/(1+exp(-1*sum(v)))
 
-def tanh(v):
+def Tanh(v):
     """
     Hyperbolic tangent activation function.
     """
@@ -76,20 +76,20 @@ def LeakyReLU(v):
     x = sum(v)
     return 0.01*x if x<0 else x
 
-def softplus(v):
+def Softplus(v):
     """
     Softplus activation function.
     """
     return log(1 + exp(sum(v)))
 
-def softsign(v):
+def Softsign(v):
     """
-    Softplus activation function.
+    Softsign activation function.
     """
     x = sum(v)
     return x/(1+abs(x))
 
-def gaussian(v):
+def Gaussian(v):
     """
     Gaussian activation function.
     """
