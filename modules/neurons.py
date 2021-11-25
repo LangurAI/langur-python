@@ -20,12 +20,12 @@ class Perceptron(Neuron):
         self.weights = append(bias_weight_initialization(1), initialization(input_size))
         self.activation = activation
 
-    def calculate(self, input):
+    def calculate(self, input_values):
         """
         Calculates the activation function output on a given
         input.
         """
-        return self.activation(self.weights * (append(self.bias, input)))
+        return self.activation(self.weights * (append(self.bias, input_values)))
 
     def __str__(self):
         return f"{self.weights}"
