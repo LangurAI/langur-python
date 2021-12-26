@@ -5,7 +5,7 @@ def Step(v, threshold=0, act_value=1, inact_value=0):
     Step function where the threshold,
     activated and inactivated value can be defined.
     """
-    return act_value if v >= threshold else inact_value
+    return act_value if v > threshold else inact_value
 
 def Identity(v):
     """
