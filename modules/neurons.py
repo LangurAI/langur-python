@@ -14,7 +14,7 @@ class Perceptron(Neuron):
     This class describes the Perceptron - the 
     basic neuron.
     """
-    def __init__(self, input_size=5, activation=activation.Step, initialization=initialization.He, bias=initialization.Zeros):
+    def __init__(self, input_size=5, activation=activation.Step, initialization=initialization.He, bias=initialization.Zeros, learning_rate=1):
         super().__init__(input_size)
         self.bias = bias(1)
         self.weights = initialization(input_size)
