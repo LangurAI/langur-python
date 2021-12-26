@@ -7,6 +7,15 @@ def Step(v, threshold=0, act_value=1, inact_value=0):
     """
     return act_value if v > threshold else inact_value
 
+def Signum(v):
+    """
+    Signum is a special case of the
+    Step function, where the activated
+    value (more than 0) is 1 and
+    otherwise it returns -1.
+    """
+    return Step(v, 0, 1, -1)
+
 def Identity(v):
     """
     Identity activation function.
