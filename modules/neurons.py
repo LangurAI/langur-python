@@ -25,7 +25,7 @@ class Perceptron(Neuron):
         Calculates the activation function output on a given
         input.
         """
-        return self.activation(self.weights * (append(self.bias, input_values)))
+        return self.activation(sum(self.weights * (append(self.bias, input_values))))
 
     def __str__(self):
         return f"{self.weights}"
