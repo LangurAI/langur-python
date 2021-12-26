@@ -13,17 +13,17 @@ def Identity(v):
     """
     return v
 
-def Sigmoid(v):
+def Sigmoid(v, alfa=1):
     """
     Sigmoid function.
     """
-    return 1/(1+exp(-1*v))
+    return 1/(1+exp(-1*alfa*v))
 
-def Tanh(v):
+def Tanh(v, alfa=1):
     """
     Hyperbolic tangent activation function.
     """
-    return (exp(v)-exp(-1*v))/(exp(v)+exp(-1*v))
+    return (exp(alfa*v)-exp(-1*alfa*v))/(exp(alfa*v)+exp(-1*alfa*v))
 
 def ReLU(v):
     """
