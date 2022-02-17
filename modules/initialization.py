@@ -1,28 +1,61 @@
-from numpy import random, sqrt, zeros
+import numpy as np
 
-def Zeros(input_size):
-    return zeros(input_size)
+def Zeros(inp):
+    return np.zeros(inp)
 
-def AlphaRandom(input_size, alpha=0.01):
+def AlphaRandom(inp, alpha=0.01):
     """
     Random weight initialization with multiplication by constant alpha.
     """
-    return random.randn(input_size)*alpha
+    return np.random.randn(inp)*alpha
 
-def Random(input_size):
+def RandomNormal(inp):
     """
-    Random weight initialization.
+    Random normally distributed weight initialization.
     """
-    return random.randn(input_size)
+    return np.random.randn(inp)
 
-def He(input_size):
+def RandomUniform(inp, low=-1.0, high=1.0):
     """
-    He weight initialization.
+    Random uniformly distributed initialization.
     """
-    return random.randn(input_size)*sqrt(2/(input_size))
+    return np.random.uniform(size=inp, low=low, high=high)
 
-def Xavier(input_size):
+# Review needed
+
+def HeNormal(inp):
     """
-    Xavier weight initialization.
+    Kaiming He's weight initialization implementation
+    with normal distribution.
     """
-    return random.randn(input_size)*sqrt(1/(input_size))
+    return np.random.randn(inp)*np.sqrt(2/(inp))
+
+def HeUniform(inp):
+    """
+    Kaiming He's weight initialization implementation
+    with uniform distribution.
+    """
+    return np.random.uniform(size=inp, low=-1*np.sqrt(6/inp), high=np.sqrt(6/inp))
+
+
+def XavierNormal(inp, outp=1):
+    """
+    Xavier Glorot's weight initialization 
+    with normal distribution.
+    """
+    return np.random.randn(inp) * np.sqrt(2/(inp+outp))
+
+def XavierUniform(inp, outp=1):
+    """
+    Xavier Glorot's weight initialization 
+    with uniform distribution.
+    """
+    return np.random.uniform(size=inp, low=-1*np.sqrt(6/(inp+outp)), high=np.sqrt(6/(inp+outp)))
+
+### Aliases
+Random = RandomUniform
+KaimingNormal = HeNormal
+KaimingUniform = HeUniform
+GlorotNormal = XavierNormal
+GlorotUniform = XavierUniform
+

@@ -5,7 +5,16 @@ def Step(v, threshold=0, act_value=1, inact_value=0):
     Step function where the threshold,
     activated and inactivated value can be defined.
     """
-    return act_value if v >= threshold else inact_value
+    return act_value if v > threshold else inact_value
+
+def Signum(v):
+    """
+    Signum is a special case of the
+    Step function, where the activated
+    value (more than 0) is 1 and
+    otherwise it returns -1.
+    """
+    return Step(v, 0, 1, -1)
 
 def Identity(v):
     """
@@ -13,17 +22,17 @@ def Identity(v):
     """
     return v
 
-def Sigmoid(v):
+def Sigmoid(v, alfa=1):
     """
     Sigmoid function.
     """
-    return 1/(1+exp(-1*v))
+    return 1/(1+exp(-1*alfa*v))
 
-def Tanh(v):
+def Tanh(v, alfa=1):
     """
     Hyperbolic tangent activation function.
     """
-    return (exp(v)-exp(-1*v))/(exp(v)+exp(-1*v))
+    return (exp(alfa*v)-exp(-1*alfa*v))/(exp(alfa*v)+exp(-1*alfa*v))
 
 def ReLU(v):
     """
