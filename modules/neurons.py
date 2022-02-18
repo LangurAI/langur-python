@@ -1,5 +1,5 @@
 import activation, initialization
-from numpy import array
+import numpy as np
 
 class Neuron:
     """
@@ -26,10 +26,93 @@ class Perceptron(Neuron):
         Calculates the activation function output on a given
         input.
         """
-        return self.activation(self.bias + sum(array(self.weights) * array(input_values)))
+        return self.activation(self.bias + sum(np.array(self.weights) * np.array(input_values)))
 
     def __str__(self):
-        return f"{self.weights}"
+        return f"Perceptron with weights: {self.weights}"
+
+
+class Instar(Neuron):
+    """
+    Class that represents Grossberg's
+    instar neuron.
+    """
+    def __init__(self, input_size=5, activation=activation.Identity, initialization=initialization.HeNormal, learning_rate=1):
+        super().__init__(input_size)
+        self.weights = initialization(input_size)
+        self.activation = activation
+        self.learning_rate = learning_rate
+        self.last = 1
+
+    def __str__(self):
+        return f"Instar with weights: {self.weights}"
+    
+    def normalizeVector(self, v):
+        """
+        Function that returns a normalized vector v.
+        """
+        return v/np.sqrt(np.inner(v,v))
+
+    def normalChecker(self, v):
+        """
+        Checks whether a vector is normal with length 1.
+        """
+        return np.sqrt(sum(v ** 2))
+
+    def vectorCosine(self, v):
+        """
+        Calculates the cosine between two vectors
+        (because they are both normal and have length 1).
+        """
+        return np.dot(self.weights, v)
+    
+    def calculate(self, input_values):
+        """
+        Function that calculates the output of the instar.
+        """
+        self.last =  self.vectorCosine(self.normalizeVector(input_values))
+        return self.activation(self.last)
+    
+    def train(self, input_values, y=None):
+        """
+        Function that trains the instar either
+        unsupervised (default) or supervised
+        using the Grossberg rule.
+        """
+        if y == None:
+            y = self.last
+        self.weights = self.normalizeVector(self.weights + self.learning_rate*abs(y)*(input_values-self.weights))
+        return self.weights
+
+# Review needed
+
+class Outstar(Neuron): 
+    """
+    Class that represents Grossberg's
+    outstar neuron.
+    """
+    def __init__(self, input_size=5, initialization=initialization.HeNormal, learning_rate=1):
+        super().__init__(input_size)
+        self.weights = initialization(input_size)
+        self.learning_rate = learning_rate
+        self.last = 1
+
+    def __str__(self):
+        return f"Outstar with weights: {self.weights}"
+    
+    def calculate(self, input_value):
+        """
+        Function that calculates the output vector
+        of the outstar.
+        """
+        pass
+
+    def train(self, input_value):
+        """
+        Function that trains the outstar 
+        using the Grossberg rule.
+        """
+        pass
 
 class Sigmoid(Perceptron):
     """
@@ -47,7 +130,7 @@ class Sigmoid(Perceptron):
         Calculates the activation function output on a given
         input.
         """
-        return self.activation(self.bias + sum(array(self.weights) * array(input_values)))
+        return self.activation(self.bias + sum(np.array(self.weights) * np.array(input_values)))
 
     def __str__(self):
         return f"{self.weights}"
@@ -55,17 +138,5 @@ class Sigmoid(Perceptron):
 class Radial(Neuron):
     """
     Radial neuron model.
-    """
-    pass
-
-class Instar(Neuron):
-    """
-    Grossberg's instar neuron.
-    """
-    pass
-
-class Outstar(Neuron):
-    """
-    Grossberg's outstar neuron.
     """
     pass
