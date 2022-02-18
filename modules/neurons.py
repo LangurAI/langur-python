@@ -57,3 +57,15 @@ class Radial(Neuron):
     Radial neuron model.
     """
     pass
+
+class Instar(Neuron):
+    """
+    Grossberg's instar neuron.
+    """
+    pass
+
+class Outstar(Neuron):
+    """
+    Grossberg's outstar neuron.
+    """
+    pass
