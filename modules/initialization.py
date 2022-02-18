@@ -21,7 +21,6 @@ def RandomUniform(inp, low=-1.0, high=1.0):
     """
     return np.random.uniform(size=inp, low=low, high=high)
 
-# Review needed
 
 def HeNormal(inp):
     """
