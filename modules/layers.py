@@ -2,15 +2,20 @@ from neurons import *
 import activation
 import initialization
 
+
+# Multithreading for feedforward.
+
 class Layer:
     pass
 
 class InputLayer(Layer):
-    def __init__(self, outputs=5):
+    """
+    Input layer.
+    """
+    def __init__(self, outputs=5, initialization=initialization.HeNormal):
         self.outputs = outputs
+        self.weights = initialization(outputs)
 
-    def feed(self, next_layer):
-        pass
 
 class PerceptronLayer(Layer):
     """
@@ -22,7 +27,7 @@ class PerceptronLayer(Layer):
         self.dimensions = dimensions
         self.neurons = [Perceptron(input_size=dimensions[0], activation=activation, initialization=initialization, bias=bias, learning_rate=learning_rate) for _ in range(dimensions[1])]
 
-    def __str__(self):
+    def __repr__(self):
         s = "Perceptron layer with neurons:\n" + "\n".join([str(i) + ": " + str(self.neurons[i]) for i in range(len(self.neurons))])
         return s
 
@@ -32,3 +37,9 @@ class PerceptronLayer(Layer):
         also hotswapable.
         """
         self.neurons[index] = Perceptron(input_size = self.dimensions[0], activation=activation, initialization=initialization, bias=bias, learning_rate=learning_rate)
+    
+    hotswap = changeNeuron
+
+# Aliases
+Dense = PerceptronLayer
+DenseLayer = PerceptronLayer
