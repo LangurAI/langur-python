@@ -28,7 +28,7 @@ class Perceptron(Neuron):
         """
         return self.activation(self.bias + sum(np.array(self.weights) * np.array(input_values)))
 
-    def __str__(self):
+    def __repr__(self):
         return f"Perceptron with weights: {self.weights}"
 
 
@@ -44,7 +44,7 @@ class Instar(Neuron):
         self.learning_rate = learning_rate
         self.last = 1
 
-    def __str__(self):
+    def __repr__(self):
         return f"Instar with weights: {self.weights}"
     
     def normalizeVector(self, v):
@@ -97,7 +97,7 @@ class Outstar(Neuron):
         self.learning_rate = learning_rate
         self.last = 1
 
-    def __str__(self):
+    def __repr__(self):
         return f"Outstar with weights: {self.weights}"
     
     def calculate(self, input_value):
@@ -132,7 +132,7 @@ class Sigmoid(Perceptron):
         """
         return self.activation(self.bias + sum(np.array(self.weights) * np.array(input_values)))
 
-    def __str__(self):
+    def __repr__(self):
         return f"{self.weights}"
 
 class Radial(Neuron):
